@@ -1,0 +1,33 @@
+.Profile {
+  --tblr-avatar-size: 2.5rem;
+    position: relative;
+    width: var(--tblr-avatar-size);
+    height: var(--tblr-avatar-size);
+    font-size: calc(var(--tblr-avatar-size)/2.85714);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #656d77;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #f0f2f6 no-repeat 50%/cover;
+    border-radius: 4px;
+}
+.Name {
+  color: rgba(35,46,60,.7);
+  font-size: .875rem;
+    font-weight: 600;
+    line-height: 1.42857;
+}
+
+.profileContainer {
+  border: 1px solid #dadcde;
+  border-radius: 4px;
+  padding: 7px;
+}

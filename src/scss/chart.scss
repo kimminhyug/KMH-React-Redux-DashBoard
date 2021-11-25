@@ -1,0 +1,17 @@
+$backgroundColor: white;
+$width: 90%;
+$height: 90%;
+
+
+.Chart {
+    background-color: $backgroundColor;
+    width: $width;
+    height: $height;
+    margin-top: 4%;
+    margin-left: 4.5%;
+    // margin-right: $marginRight;
+    box-shadow: 0 2px 4px 0 rgb(35 46 60 / 4%);
+    // border: 1px solid rgba(101,109,119,.16);
+    background-clip: border-box;
+    border-radius: 4
+}

@@ -1,14 +1,16 @@
 # KMH-React-Redux-DashBoard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React, TypeScript 공부중입니다.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![capture_dashBoard](https://user-images.githubusercontent.com/42853144/143545765-b1ddd2c5-eca0-4598-9194-858eeff2ed3e.jpg)
 
 Components
  - Profile
- - Chart
+ - Chart(Bar, Line)
  - Card
  - Timer
+ - Grid
+
+
+### `npm start`
+시작.

@@ -8,7 +8,8 @@ export type ChartTypes = typeof ChartType[keyof typeof ChartType];
 
 export type chart = {
     type: ChartTypes;
-    data:[any]
+    data:[any],
+    name:string[],
 }
 
 // export enum ChartType {
@@ -17,8 +18,9 @@ export type chart = {
 // }
    
 export interface bar extends chart{
-    
-    
+    x:string,
+    y:string,
+    key: any[]
 }
 
 

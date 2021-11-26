@@ -17,8 +17,8 @@ export const Bar = (props:bar) => {
     <VictoryAxis
       // tickValues specifies both the number of ticks and where
       // they are placed on the axis
-      tickValues={[1, 2, 3, 4]}
-      tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+      tickValues={props.key}
+      tickFormat={props.name}
     />
     <VictoryAxis
       dependentAxis
@@ -27,8 +27,20 @@ export const Bar = (props:bar) => {
     />
     <VictoryBar
       data={props.data}
-      x="quarter"
-      y="earnings"
+      x={props.x}
+      y={props.y}
+      style={{
+        data: {
+          fill: ({ datum }) => {console.log(datum); return datum.earnings >= 10000 ? "#ffff00" : "#c43a31";},
+          stroke: ({ index }) => {console.log(index); return +index % 2 === 0  ? "#000000" : "#c43a31";},
+          fillOpacity: 0.7,
+          strokeWidth: 5
+        },
+        labels: {
+          fontSize: 15,
+          fill: ({ datum }:any) => datum.x === 3 ? "#000000" : "#c43a31"
+        }
+      }}
     />
   </VictoryChart>
   );

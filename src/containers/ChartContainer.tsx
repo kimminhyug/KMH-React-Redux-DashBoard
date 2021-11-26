@@ -2,16 +2,37 @@ import React, { createElement } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../modules';
 
-import Chart from '../components/Chart';
+import Chart from '../components/BarChart';
+import {Bar} from '../components/chart/Bar';
 
-function ChartContainer () {
-  // 상태를 조회합니다. 상태를 조회 할 때에는 state 의 타입을 RootState 로 지정해야합니다.
-  const count = useSelector((state: RootState) => state.counter.count);
-  const dispatch = useDispatch(); // 디스패치 함수를 가져옵니다
+import {chart, ChartType} from '../types/ChartType';
 
 
+function ChartContainer (props:any) {
+  console.log(props.chart);
+  // const data = [
+  //   {quarter: 1, earnings: 13000},
+  //   {quarter: 2, earnings: 16500},
+  //   {quarter: 3, earnings: 14250},
+  //   {quarter: 4, earnings: 19000}
+  // ];
+  
+  // switch (props.type) {
+  //   case ChartType.BAR:
+      
+  //     break;
+  
+  //   default:
+  //     break;
+  // }
+  
   return (
-    <Chart/>
+    <div className="Chart">
+
+    
+      {/* <Chart/> */}
+      <Bar type={props.chart.type} data={props.chart.data}></Bar>
+    </div>
   );
 };
 

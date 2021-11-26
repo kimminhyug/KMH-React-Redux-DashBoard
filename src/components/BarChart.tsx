@@ -14,9 +14,10 @@ const data = [
 ];
 
 
-function Chart() {
+function BarChart() {
   return (
-    <div className="Chart"> 
+
+    
       <VictoryChart
         // domainPadding will add space to each side of VictoryBar to
         // prevent it from overlapping the axis
@@ -39,8 +40,8 @@ function Chart() {
           y="earnings"
         />
       </VictoryChart>
-    </div>
+    
   );
 }
 
-export default Chart;
+export default BarChart;

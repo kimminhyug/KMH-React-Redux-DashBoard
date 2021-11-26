@@ -2,7 +2,7 @@ $backgroundColor: #fff;
 $width: 100%;
 $height: 100%;
 
-$padding : 5%;
+$padding : 2%;
 .Card {
     background-color: $backgroundColor;
     // display: flex;
@@ -13,5 +13,5 @@ $padding : 5%;
     border: 1px solid rgba(101,109,119,.16);
     background-clip: border-box;
     border-radius: 4px;
-    // padding: $padding;
+    padding: $padding;
 }

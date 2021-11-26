@@ -1,33 +1,291 @@
-.Profile {
-  --tblr-avatar-size: 2.5rem;
-    position: relative;
-    width: var(--tblr-avatar-size);
-    height: var(--tblr-avatar-size);
-    font-size: calc(var(--tblr-avatar-size)/2.85714);
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #656d77;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: bottom;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background: #f0f2f6 no-repeat 50%/cover;
-    border-radius: 4px;
-}
-.Name {
-  color: rgba(35,46,60,.7);
-  font-size: .875rem;
-    font-weight: 600;
-    line-height: 1.42857;
-}
+
 
 .profileContainer {
   border: 1px solid #dadcde;
-  border-radius: 4px;
-  padding: 7px;
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 8px;
+  font-size : 0.8em;
+}
+
+
+
+@media (min-width: 576px) {
+  .Name {
+    color: rgba(35,46,60,.7);
+    font-size: 0.5em;
+      font-weight: 600;
+      line-height: 1.42857;
+  }
+  
+  .Auth {
+    color: rgba(35,46,60,.7);
+      font-size: 0.4em;
+      font-weight: 400;
+      line-height: 1.02857;
+      margin-left: 5px;
+  
+  }
+
+  .Profile {
+    --tblr-avatar-size: 2.5rem;
+      position: relative;
+      width: var(--tblr-avatar-size);
+      height: var(--tblr-avatar-size);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #656d77;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: bottom;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background: #f0f2f6 no-repeat 50%/cover;
+      border-radius: 4px;
+      border: 1px solid #dadcde;
+  }
+  
+}
+@media (min-width: 768px) {
+  .Name {
+    color: rgba(35,46,60,.7);
+    font-size: 0.6em;
+      font-weight: 600;
+      line-height: 1.42857;
+  }
+  
+  .Auth {
+    color: rgba(35,46,60,.7);
+      font-size: 0.5em;
+      font-weight: 400;
+      line-height: 1.02857;
+      margin-left: 5px;
+  
+  }
+
+  .Profile {
+    --tblr-avatar-size: 2.5rem;
+      position: relative;
+      width: var(--tblr-avatar-size);
+      height: var(--tblr-avatar-size);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #656d77;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: bottom;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background: #f0f2f6 no-repeat 50%/cover;
+      border-radius: 4px;
+      border: 1px solid #dadcde;
+  }
+}
+@media (min-width: 992px) {
+  .Name {
+    color: rgba(35,46,60,.7);
+    font-size: 0.6em;
+      font-weight: 600;
+      line-height: 1.42857;
+  }
+  
+  .Auth {
+    color: rgba(35,46,60,.7);
+    font-size: 0.5em;
+      font-weight: 400;
+      line-height: 1.02857;
+      margin-left: 5px;
+  
+  }
+
+  .Profile {
+    --tblr-avatar-size: 2.5rem;
+      position: relative;
+      width: var(--tblr-avatar-size);
+      height: var(--tblr-avatar-size);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #656d77;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: bottom;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background: #f0f2f6 no-repeat 50%/cover;
+      border-radius: 4px;
+      border: 1px solid #dadcde;
+  }
+}
+@media (min-width: 1200px) {
+  .Name {
+    color: rgba(35,46,60,.7);
+      font-size: 0.6em;
+      font-weight: 600;
+      line-height: 1.42857;
+  }
+  
+  .Auth {
+    color: rgba(35,46,60,.7);
+    font-size: 0.5em;
+      font-weight: 400;
+      line-height: 1.02857;
+      margin-left: 5px;
+  
+  }
+
+  .Profile {
+    --tblr-avatar-size: 2.5rem;
+      position: relative;
+      width: var(--tblr-avatar-size);
+      height: var(--tblr-avatar-size);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #656d77;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: bottom;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background: #f0f2f6 no-repeat 50%/cover;
+      border-radius: 4px;
+      border: 1px solid #dadcde;
+  }
+}
+@media (min-width: 1400px) {
+  .Name {
+    color: rgba(35,46,60,.7);
+    
+      font-weight: 600;
+      line-height: 1.42857;
+  }
+  
+  .Auth {
+    color: rgba(35,46,60,.7);
+    font-size: 0.6em;
+      font-weight: 400;
+      line-height: 1.02857;
+      margin-left: 5px;
+  
+  }
+
+  .Profile {
+    --tblr-avatar-size: 3.5rem;
+      position: relative;
+      width: var(--tblr-avatar-size);
+      height: var(--tblr-avatar-size);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #656d77;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: bottom;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background: #f0f2f6 no-repeat 50%/cover;
+      border-radius: 4px;
+      border: 1px solid #dadcde;
+  }
+  
+}
+
+@media (min-width: 2560px) {
+  .Name {
+    color: rgba(35,46,60,.7);
+    
+      font-weight: 600;
+      line-height: 1.42857;
+  }
+  
+  .Auth {
+    color: rgba(35,46,60,.7);
+    font-size: 0.6em;
+      font-weight: 400;
+      line-height: 1.02857;
+      margin-left: 5px;
+  
+  }
+
+  .Profile {
+    --tblr-avatar-size: 5.5rem;
+      position: relative;
+      width: var(--tblr-avatar-size);
+      height: var(--tblr-avatar-size);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #656d77;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: bottom;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background: #f0f2f6 no-repeat 50%/cover;
+      border-radius: 4px;
+      border: 1px solid #dadcde;
+  }
+  
+}
+  
+@media (min-width: 3000px) {
+  .Name {
+    color: rgba(35,46,60,.7);
+    font-size: 1.3em;
+      font-weight: 600;
+      line-height: 1.42857;
+  }
+  
+  .Auth {
+    color: rgba(35,46,60,.7);
+    font-size: 1.1em;
+      font-weight: 400;
+      line-height: 1.02857;
+      margin-left: 5px;
+  
+  }
+
+  .Profile {
+    --tblr-avatar-size: 8.5rem;
+      position: relative;
+      width: var(--tblr-avatar-size);
+      height: var(--tblr-avatar-size);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #656d77;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: bottom;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background: #f0f2f6 no-repeat 50%/cover;
+      border-radius: 4px;
+      border: 1px solid #dadcde;
+  }
+  
 }

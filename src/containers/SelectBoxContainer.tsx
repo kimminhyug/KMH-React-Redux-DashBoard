@@ -8,17 +8,20 @@ import SelectBox from '../components/SelectBox';
 
 function SelectBoxContainer (props:any) {
     
-    // const count = useSelector((state: RootState) => state.counter.count);
+    const onChange = useSelector((state: RootState) => state.selector);
+    const state = useSelector((state: RootState) => state);
+    // console.log(state)
     const dispatch = useDispatch(); 
   
     
-    const onChange = (y:any) => {
-      dispatch(change(y));
+    const dispatchOnChange = (e:any) => {
+      dispatch(change({onChange:props.onChange(e), text : e.target.value}));
     };
+    
     
   return (
     <div className="selectBoxContainer">
-      <SelectBox onChange={onChange}></SelectBox>
+      <SelectBox onChange={dispatchOnChange}></SelectBox>
         
     </div>
   );

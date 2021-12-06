@@ -2,14 +2,17 @@ import React, {useMemo, useCallback, useEffect, useState} from 'react';
 import DataTable from 'react-data-table-component';
 import tableDataItems from '../../data/gridData';
 
-type GridProps = {
-  onChange: () => void;  
-}
+export type GridProps = {
+  data:any[],
+  onInit:Function
+}	
 
-function Grid(onChange : GridProps) {
+function Grid(props : GridProps) {
   const [selectedRows, setSelectedRows] = useState([]);
+  
   // tableDataItems
 	useEffect(() => {
+		props.onInit();
 		console.log('state', selectedRows);
 	}, [selectedRows]);
 
@@ -89,7 +92,7 @@ function Grid(onChange : GridProps) {
  return (
 		<DataTable
 			title="Desserts"
-			data={tableDataItems}
+			data={props.data}
 			columns={columns}
 			selectableRows
 			onSelectedRowsChange={handleChange}

@@ -13,8 +13,8 @@ import GridContainer from './containers/Grid/GridContainer';
 import {barProps1, barProps2, barProps3} from './data/barData';
 import {lineProps1} from './data/lineData';
 
-
-
+//임시 데이터
+import tableDataItems from './data/gridData';
 
 
 
@@ -52,7 +52,10 @@ const App: React.FC = () => {
         <div className="Logo">
           
         </div>
-        <SelectBoxContainer onChange={()=>{console.log(1);}}></SelectBoxContainer >
+        <SelectBoxContainer onChange={(e:Event)=>{
+          console.log((e.target as HTMLInputElement).value);
+        
+        }}></SelectBoxContainer >
         <div className="profileContainer">
           <ProfileContainer url="../image/profile.jpg "></ProfileContainer>
           <div>
@@ -98,7 +101,9 @@ const App: React.FC = () => {
 
         <div className="container-4">
           <CardContainer>
-            <GridContainer/>
+            <GridContainer
+              data={tableDataItems}
+            />
           </CardContainer>
         </div>
       </div>

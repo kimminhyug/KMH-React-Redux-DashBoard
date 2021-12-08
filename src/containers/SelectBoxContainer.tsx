@@ -10,7 +10,7 @@ function SelectBoxContainer (props:any) {
     
     const onChange = useSelector((state: RootState) => state.selector);
     const state = useSelector((state: RootState) => state);
-    // console.log(state)
+    // console.log(state  )
     const dispatch = useDispatch(); 
   
     

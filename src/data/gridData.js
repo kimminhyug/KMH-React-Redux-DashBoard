@@ -25,8 +25,8 @@ export default [
 	},
 	{
 		id: 3,
-		name: 'Eclair',
-		type: 'Pastry',
+		name: 'MintChoco IceCream',
+		type: 'GOD',
 		calories: 262,
 		fat: 16.0,
 		carbs: 37,
@@ -37,8 +37,8 @@ export default [
 	},
 	{
 		id: 4,
-		name: 'Cupcake',
-		type: 'Pastry',
+		name: 'Iced Tea(pitch)',
+		type: 'Tea',
 		calories: 305,
 		fat: 3.7,
 		carbs: 67,
@@ -49,8 +49,8 @@ export default [
 	},
 	{
 		id: 5,
-		name: 'Gingerbread',
-		type: 'Pastry',
+		name: '삼겹살',
+		type: '고기',
 		calories: 356,
 		fat: 16.0,
 		carbs: 49,

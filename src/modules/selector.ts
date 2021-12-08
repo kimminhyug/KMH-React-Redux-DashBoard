@@ -9,16 +9,18 @@ export const change = (props:any) => ({
 });
 // payload: diff
 
-
 type SelectorAction =
   | ReturnType<typeof change>;
 
 type SelectorState = {
+  text:String,
+  onChange:Function
 };
 
 
 const initialState: SelectorState = {
-  text : null
+  text : '',
+  onChange:()=>{}
 };
 
 // 리듀서

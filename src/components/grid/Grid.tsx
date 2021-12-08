@@ -4,20 +4,17 @@ import tableDataItems from '../../data/gridData';
 
 export type GridProps = {
   data:any[],
-  onInit:Function
+  onInit:Function,
+  onSelect:Function,
+  selectValue:String
 }	
 
 function Grid(props : GridProps) {
   const [selectedRows, setSelectedRows] = useState([]);
-  
-  // tableDataItems
-	useEffect(() => {
-		props.onInit();
-		console.log('state', selectedRows);
-	}, [selectedRows]);
-
-	const handleButtonClick = () => {
-		console.log('clicked');
+	//SyntheticBaseEvent 
+	const handleButtonClick = (event:any) => {
+		// props.onSelect();
+		alert(event.target.name);
 	};
 
 	const handleChange = useCallback(state => {
@@ -27,8 +24,7 @@ function Grid(props : GridProps) {
 	const columns = useMemo(
 		() => [
 			{
-				
-				cell: () => <button onClick={handleButtonClick}>Action</button>,
+				cell: (row:any) => {return <button onClick={handleButtonClick} name={row.name}>Action</button>},
 				ignoreRowClick: true,
 				allowOverflow: true,
 				button: true,
@@ -91,7 +87,7 @@ function Grid(props : GridProps) {
 	);
  return (
 		<DataTable
-			title="Desserts"
+			title="FOOOOOOOD"
 			data={props.data}
 			columns={columns}
 			selectableRows

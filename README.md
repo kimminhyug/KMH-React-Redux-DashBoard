@@ -9,13 +9,28 @@ Components
  - Chart(Bar, Line)
  - Card
  - Timer
- - Grid(작업중)
+    -- 제일 중요한 퇴근시간
+ - Grid
  - SearchBar
+    -- Search에 입력한 값을 토대로 Grid를 필터링함.
 
-## 확인해봐야 하는것
- - bindActionCreators, action 함수 : action에서 디스패치 되는 것들은  퓨어 함수구조여야함, 액션, 리듀서가 스테이트를 제어하는것으로 보임 , 렌더링 시점 확인 : state가 변할시 재 렌더링
- - 부모 자식관계가 아닌 다른 컴포넌트끼리 데이터 컨트롤은 어디까직 허용되는지
- - state에 이벤트를 넣어두어도 괜찮은지, 된다면 렌더링시 이벤트가 계속 add remove 되는건 아닌지, 퍼포먼스가 어떤지
+
+### 햇갈리던것
+오직 store에만 state를 저장할 수 있는지, redux가 아닌 기존 방식의 state는 사용하면 안되는지였다.
+일단 정답은 둘다 동시 사용가능하다이다.
+내가 예전에 react로 게임 전적 사이트를 만들때 자식(전적1개)에서 부모에 접근할떄 굉장히 귀찮게 매핑을 해서 접근했던것으로 보인다. ex 검색하는 소환사명 접근
+
+만약 검색하는 소환사명이 store에서 일괄로 관리했다면? 나는 접근하기 아주 편리했을것이고 매핑작업도 하지 않았을 것이다. 위에 문제를 해결하기 위해 나온것이 redux 이다.
+그렇기에 무조건 store state를 사용하는것이 아닌 공유해야할 state만 따로 store에 저장하고 그렇지 않은것은 기존 state로 처리해야한다 생각이 든다.
+
+### Memo
+useEffect는 컴포넌트가 렌더링 된 이후에 실행됨
+2번쨰 파라미터는 배열형태이며 2번쨰파라미터의 값이 변경될떄마다 함수가 실행됨(grid를 필터링할떄 selectValue를 파라미터로 집어넣어 사용해봄. 기억이 안날시 해당 소스 참조)
+
+2번쨰 파라미터가 []일시 초기 1회만 초기값을로 설정됨
+읽어볼 만한 내용:
+
+https://ko.reactjs.org/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often
 
 ### `npm start`
 시작.

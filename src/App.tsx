@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import CounterContainer from './containers/CounterContainer';
 import CardContainer from './containers/CardContainer';
 import ChartContainer from './containers/ChartContainer';
@@ -45,7 +45,8 @@ const App: React.FC = () => {
   // useEffect(() => {
   //   document.title = "KMH-DashBoard"
   // }, []);
-  
+
+  // let selectValue = "";
   return <div className="App">
     <div className="Header">
       <div className="Header-content">
@@ -95,9 +96,15 @@ const App: React.FC = () => {
         </div>
         <div className="container cardContainer">
           <CardContainer>
-            <ChartContainer chart={barProps3}/>
+            <CounterContainer></CounterContainer>
           </CardContainer>
         </div>
+        {/* <div className="container cardContainer">
+          <CardContainer>
+            <ChartContainer chart={barProps3}/>
+          </CardContainer>
+        </div> */}
+
 
         <div className="container-4">
           <CardContainer>

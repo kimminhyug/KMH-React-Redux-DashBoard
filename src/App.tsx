@@ -9,6 +9,7 @@ import ProfileAuthContainer from './containers/ProfileAuthContainer';
 import SelectBoxContainer from './containers/SelectBoxContainer';
 
 import GridContainer from './containers/Grid/GridContainer';
+import ListContainer from './containers/ListContainer';
 
 import {barProps1, barProps2, barProps3} from './data/barData';
 import {lineProps1} from './data/lineData';
@@ -16,8 +17,8 @@ import {lineProps1} from './data/lineData';
 //임시 데이터
 import tableDataItems from './data/gridData';
 
-
-
+//라이브러리
+import axios, { AxiosResponse } from 'axios';
 
 import './scss/header.scss';
 
@@ -47,6 +48,13 @@ const App: React.FC = () => {
   // }, []);
 
   // let selectValue = "";
+  const onSubmit = ()=>{
+    const SERVER = 'http://localhost:8080/api/v1';
+    axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/눈덩이맞히면돌격?api_key=RGAPI-119e9fcc-dd85-400c-bcba-347dd8b54036').then(response => {
+      console.log(response);
+      alert(response.data.puuid)
+    });
+  }
   return <div className="App">
     <div className="Header">
       <div className="Header-content">
@@ -57,6 +65,7 @@ const App: React.FC = () => {
           console.log((e.target as HTMLInputElement).value);
         
         }}></SelectBoxContainer >
+        <button onClick={onSubmit}>riot puuid 조회(테스트)</button>
         <div className="profileContainer">
           <ProfileContainer url="../image/profile.jpg "></ProfileContainer>
           <div>
@@ -112,6 +121,12 @@ const App: React.FC = () => {
               data={tableDataItems}
             />
           </CardContainer>
+        </div>
+        <div className="container cardContainer">
+          <CardContainer>
+            <ListContainer></ListContainer>
+          </CardContainer>
+            
         </div>
       </div>
     </div>

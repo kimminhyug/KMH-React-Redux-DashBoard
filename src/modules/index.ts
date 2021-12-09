@@ -4,6 +4,7 @@ import card from './card';
 import timer from './timer';
 import selector from './selector';
 import grid from './grid';
+import list from './list';
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
   card,
   timer,
   selector,
-  grid
+  grid,
+  list
 });
 
 // 루트 리듀서를 내보내주세요.

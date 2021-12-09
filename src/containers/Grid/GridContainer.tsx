@@ -22,12 +22,11 @@ function GridContainer (props:GridContainerProps) {
     dispatch(insert({data : props.data}));
   };
   
-  
-  
   const dispatchSelect = (data:any) => {
     console.log(data);
     dispatch(select({data:data}));
   };
+
   useEffect(() => {
     dispatchInsert();
   },[]);
@@ -67,7 +66,3 @@ function GridContainer (props:GridContainerProps) {
 
 export default GridContainer;
 
-
-// temp1.data.filter((e)=>{
-//   if(e.name.indexOf("Fr") != -1) {return true} else {return false} 
-// })

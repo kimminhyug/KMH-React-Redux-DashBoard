@@ -50,7 +50,7 @@ function Timer({
   loop();
   return (
     <div className="Card"> 
-    {printDate} 까직 &nbsp;
+    {printDate} 까지 &nbsp;
       {hour}시간&nbsp;
       {minute}분&nbsp;
       {second}초 전

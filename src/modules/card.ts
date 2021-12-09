@@ -15,12 +15,14 @@ type CardAction =
 // 이 리덕스 모듈에서 관리 할 상태의 타입을 선언합니다
 type CardState = {
   
-  child : HTMLElement
+  child : HTMLElement,
+  puuId : String
 };
 // 초기상태를 선언합니다.
 const initialState: CardState = {
   
-  child : document.createElement("h2")
+  child : document.createElement("h2"),
+  puuId : ''
 };
 
 // 리듀서를 작성합니다.
@@ -32,7 +34,7 @@ function card(
 ): CardState {
   switch (action.type) {
     case CHILDINSERT: // case 라고 입력하고 Ctrl + Space 를 누르면 어떤 종류의 action.type들이 있는지 확인 할 수 있습니다.
-      return { child: state.child };
+      return { child: state.child, puuId : state.puuId };
     default:
       return state;
   }

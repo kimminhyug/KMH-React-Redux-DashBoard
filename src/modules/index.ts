@@ -5,6 +5,7 @@ import timer from './timer';
 import selector from './selector';
 import grid from './grid';
 import list from './list';
+import search from './search';
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   timer,
   selector,
   grid,
-  list
+  list,
+  search
 });
 
 // 루트 리듀서를 내보내주세요.

@@ -7,6 +7,7 @@ import ProfileContainer from './containers/ProfileContainer';
 import ProfileContentContainer from './containers/ProfileContentContainer';
 import ProfileAuthContainer from './containers/ProfileAuthContainer';
 import SelectBoxContainer from './containers/SelectBoxContainer';
+import SearchButtonContainer from './containers/SearchButtonContainer';
 
 import GridContainer from './containers/Grid/GridContainer';
 import ListContainer from './containers/ListContainer';
@@ -19,6 +20,7 @@ import tableDataItems from './data/gridData';
 
 //라이브러리
 import axios, { AxiosResponse } from 'axios';
+
 
 import './scss/header.scss';
 
@@ -49,11 +51,11 @@ const App: React.FC = () => {
 
   // let selectValue = "";
   const onSubmit = ()=>{
-    const SERVER = 'http://localhost:8080/api/v1';
-    axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/눈덩이맞히면돌격?api_key=RGAPI-119e9fcc-dd85-400c-bcba-347dd8b54036').then(response => {
-      console.log(response);
-      alert(response.data.puuid)
-    });
+    // const SERVER = 'http://localhost:8080/api/v1';
+    // axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/눈덩이맞히면돌격?api_key=RGAPI-119e9fcc-dd85-400c-bcba-347dd8b54036').then(response => {
+    //   console.log(response);
+    //   alert(response.data.puuid)
+    // });
   }
   return <div className="App">
     <div className="Header">
@@ -66,6 +68,7 @@ const App: React.FC = () => {
         
         }}></SelectBoxContainer >
         <button onClick={onSubmit}>riot puuid 조회(테스트)</button>
+        <SearchButtonContainer onSubmit={onSubmit} text={"riot puuid 조회(테스트)2"}></SearchButtonContainer>
         <div className="profileContainer">
           <ProfileContainer url="../image/profile.jpg "></ProfileContainer>
           <div>

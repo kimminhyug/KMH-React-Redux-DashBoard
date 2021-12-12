@@ -8,11 +8,15 @@ import { createStore, applyMiddleware  } from 'redux';
 import rootReducer from './modules';
 import {composeWithDevTools}  from 'redux-devtools-extension';
 
+
+import ReduxThunk from 'redux-thunk';
+
 // const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || composeWithDevTools;
 const middleware:any[] = [];
-const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(...middleware),
-  // other store enhancers if any
+const store = createStore(rootReducer,
+  composeWithDevTools(
+    applyMiddleware(ReduxThunk),
+  
 ));
 
 ReactDOM.render(

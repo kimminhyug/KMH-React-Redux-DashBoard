@@ -1,4 +1,5 @@
-92c52175-5e89-46aa-85ba-7f9dc83ef123
+임시키 매일 초기화됨 깃에 올려도 문제없음
+:RGAPI-f6fa3a26-d60c-4ed3-a442-0668ede41606
 
 
 https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/눈덩이맞히면돌격?api_key=RGAPI-119e9fcc-dd85-400c-bcba-347dd8b54036
@@ -1768,3 +1769,6 @@ https://asia.api.riotgames.com/lol/match/v5/matches/KR_5613651372?api_key=RGAPI-
         "tournamentCode": ""
     }
 }
+
+http://ddragon.leagueoflegends.com/cdn/11.24.1/data/en_US/champion/Aatrox.json
+http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/Aatrox.png

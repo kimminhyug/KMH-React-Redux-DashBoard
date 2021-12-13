@@ -51,11 +51,12 @@ const App: React.FC = () => {
 
   // let selectValue = "";
   const onSubmit = ()=>{
-    // const SERVER = 'http://localhost:8080/api/v1';
-    // axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/눈덩이맞히면돌격?api_key=RGAPI-119e9fcc-dd85-400c-bcba-347dd8b54036').then(response => {
-    //   console.log(response);
-    //   alert(response.data.puuid)
-    // });
+    
+    let response = axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/눈덩이맞히면돌격?api_key=RGAPI-f6fa3a26-d60c-4ed3-a442-0668ede41606').then(response => {
+      console.log(response);
+      alert(response.data.puuid)
+    });
+    return response;
   }
   return <div className="App">
     <div className="Header">

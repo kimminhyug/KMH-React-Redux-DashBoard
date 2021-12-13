@@ -4,7 +4,6 @@ import '../scss/profile.scss';
 
 function SearchButton({onSubmit, text}:any) {
   const handleSubmit = (e:any) => {
-    console.log(onSubmit)
     onSubmit(e);
   }
   return (

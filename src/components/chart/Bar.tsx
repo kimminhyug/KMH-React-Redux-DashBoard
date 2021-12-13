@@ -3,7 +3,7 @@ import { VictoryAxis, VictoryChart, VictoryBar } from 'victory';
 import styled from 'styled-components';
 
 export const Bar = (props:bar) => {
-  console.log(props);
+  
   const StyledPoint = styled.circle`
     fill: ${(props) => props.color};
   `;

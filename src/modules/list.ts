@@ -4,14 +4,18 @@ const SELECT = 'list/SELECT' as const;
 
 type addProps =  {
     championId : String,
-    user : String
+    user : String,
+    data : any,
+    championPicture:string
 }
 // 액션
-export const add = ( {championId, user }:addProps ) => ({
+export const add = ( {championId, user, data, championPicture }:addProps ) => ({
   type: ADD,
   payload : {
     championId : championId,
-    user : user
+    user : user,
+    data : data,
+    championPicture:championPicture
   }
 });
 
@@ -28,13 +32,13 @@ type ListState = any[];
 
 
 const initialState: ListState = [
-    {championId:"dd", user:'ㄴ눈'},
-    {championId:"dd", user:'ㄴ눈'},
-    {championId:"dd", user:'ㄴ눈'},
-    {championId:"dd", user:'ㄴ눈'},
-    {championId:"dd", user:'ㄴ눈'},
-    {championId:"dd", user:'ㄴ눈'},
-    {championId:"dd", user:'ㄴ눈'},
+    // {championId:"dd", user:'ㄴ눈'},
+    // {championId:"dd", user:'ㄴ눈'},
+    // {championId:"dd", user:'ㄴ눈'},
+    // {championId:"dd", user:'ㄴ눈'},
+    // {championId:"dd", user:'ㄴ눈'},
+    // {championId:"dd", user:'ㄴ눈'},
+    // {championId:"dd", user:'ㄴ눈'},
 ];
 
 // 리듀서

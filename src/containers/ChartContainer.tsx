@@ -19,7 +19,6 @@ function ChartContainer (props:any) {
     if(key){keyArr.push(key)}
   })
   
-  console.log(props);
   // const data = [
   //   {quarter: 1, earnings: 13000},
   //   {quarter: 2, earnings: 16500},
@@ -37,7 +36,7 @@ function ChartContainer (props:any) {
   // }
   
   const getChart = (chartName:String) => {
-    console.log(chartName)
+    
     switch(chartName.toUpperCase()) {
       case "BAR":   return <Bar type={props.chart.type} data={props.chart.data} name={nameArr} key={keyArr} x={props.chart.x} y={props.chart.y}/>;
       case "LINE":   return <Line type={props.chart.type} data={props.chart.data} name={nameArr} key={keyArr} x={props.chart.x} y={props.chart.y}/>;

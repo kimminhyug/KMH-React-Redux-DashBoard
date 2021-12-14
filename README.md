@@ -2,7 +2,7 @@
 
 React, TypeScript 공부중입니다.
 
-![capture_dashBoard](https://user-images.githubusercontent.com/42853144/143545765-b1ddd2c5-eca0-4598-9194-858eeff2ed3e.jpg)
+![capture_dashBoard](https://user-images.githubusercontent.com/42853144/145990551-10dc0cb9-98f2-495b-b701-39fcfc479e03.png)
 
 Components
  - Profile
@@ -20,7 +20,9 @@ Components
 ### 작업중
 10개의 전적검색을 불러와서 테스트중이다.
 그런데 useEffect의 deps를 잘못 설정하였는지 불필요한 렌더링이 발생하는것으로 보여... 리펙토링이 필요하다.
-또한 현재 일부 UI를 하드코딩으로 진행하였기에 컴포넌트 단위로 다시 쪼개는 작업도 필요하다.
+    -> matchInfo를 배열형태로 redux store에서 저장하고 useEffect로 설정하였다. 그런데 item이 push될떄마다 해당 배열 전체를 렌더링하는것으로 보인다.
+Riot Api Match 관련 응답 데이터를 대부분 Type으로 정의하여 연결 시켰다.
+User Info Api는 아직 작업 x
     
     
 ### 햇갈리던것

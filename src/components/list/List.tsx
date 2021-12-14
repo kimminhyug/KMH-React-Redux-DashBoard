@@ -15,8 +15,8 @@ function List(props:any) {
   const dispatch = useDispatch(); 
   
   const dispatchInsert = (props:any) => {
-    // console.log(props);
-    dispatch(add({data:props.data, championId: props.championId, user:props.user, championPicture:props.championPicture}));
+    
+    dispatch(add({championId: props.championId, user:props.user, championPicture:props.championPicture, match:props.match, userInfo:props.userInfo}));
   };
 
   /**
@@ -56,12 +56,15 @@ function List(props:any) {
    */
   useEffect(()=>{
     if(rs.matchCount<=0) return;
-    const data = rs.matchInfo[+rs.matchCount-1];
-    const {gameId, gameDuration} = data.info;
-    let match = getSelectorUserInfo(data, rs.puuid);
-    console.log(match);
-    let championPicture = 'http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/'+match.championName+'.png';
-    dispatchInsert({data:data ,championId:match.championName  , user:rs.puuid, championPicture:championPicture});  
+    
+    const data = rs.match[+rs.matchCount-1];
+    
+    
+    let info = getSelectorUserInfo(data, rs.puuid);
+    
+    let championPicture = 'http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/'+info.championName+'.png';
+    console.log(data);
+    dispatchInsert({championId:info.championName , user:rs.puuid, championPicture:championPicture, match:data, userInfo:info});  
     // console.log(data);
   },[rs.matchCount]);
 
@@ -83,7 +86,7 @@ function List(props:any) {
     <div className="List"> 
       
         {items.map((item,i) => (
-            <ListItem championPicture={item.championPicture} data={item.data} championId={item.championId} user={item.user} key={i}></ListItem>
+            <ListItem championPicture={item.championPicture} data={item.data} championId={item.championId} user={item.user} match={item.match} userInfo={item.userInfo} key={i}></ListItem>
         ))}
     </div>
   );

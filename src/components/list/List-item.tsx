@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import '../../scss/List.scss';
 
 import '../../scss/Champion.scss';
+import { MatchInfo } from '../../types/riot/MatchInfo';
 
 
 
@@ -10,7 +11,9 @@ type listProps = {
   championId: string,
   user: string,
   data:any,
-  championPicture:string
+  championPicture:string,
+  match:MatchInfo,
+  userInfo:any
 }
 
 
@@ -25,36 +28,23 @@ type listProps = {
 // }
 
 function ListItem(props:listProps) {
-  let match = null;
-  
-  // console.log(props);
-  const getSelectorUserInfo = (data:any, puuid:String) => {
-    let member;
-    // console.log(data);
-    if(!data) return;
-    for(let i=0;i<data.info.participants.length;i++) {
-        let participants = data.info.participants[i];//participants
-        if(participants.puuid=== puuid){
-          member = participants;
-          break;   
-        }
-    }
-    return member;
-  }
+  let match = props.data;
+
   useEffect(()=>{
-    let data = props?.data;
-    match = getSelectorUserInfo(data, props.user);
-    // console.log(props.data.metadata)
-    // championPicture = 'http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/'+match.championName+'.png';
-    console.log(match);
-    // match.win
-    // console.log(championPicture)
+    let data = props;
+
   })
   return (
     <div className="ListItem"> 
       <div className="Champion-Header">
         <img src={props.championPicture||'error.png'}></img><br/>
         <span>{props.championId}</span>
+      </div>
+      <div className="Champion-kda">
+        <span> {props.userInfo.kills} /</span> 
+        <span> {props.userInfo.deaths} /</span>
+        <span> {props.userInfo.assists} </span><br/>
+        <span> {props.userInfo.win?'승리':'패배'} </span>
       </div>
       
       

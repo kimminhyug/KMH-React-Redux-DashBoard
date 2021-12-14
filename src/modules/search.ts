@@ -1,6 +1,16 @@
 import axios, { AxiosResponse } from 'axios';
 import resolve from 'resolve';
 import { PENDING } from '../action/http_api';
+
+//apiKey
+import { RIOT_KEY } from '../key/riot';
+import { Match, MatchInitialize } from '../types/riot/Match';
+
+//riot type
+import { MatchInfo, MatchInfoInitialize } from '../types/riot/MatchInfo';
+
+
+
 const SUBMIT = 'search/SUBMIT' as const;
 
 
@@ -56,7 +66,7 @@ export const failGetMatchInfo = (props:any) => ({
 export const getUserInfo = (id:String) => async (dispatch:any) => {
   try {
     dispatch(pending);
-    const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=RGAPI-f6fa3a26-d60c-4ed3-a442-0668ede41606');
+    const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY);
     dispatch(success(posts)); // 성공
   } catch(e) {
     dispatch(failGetMatchInfo(e));
@@ -67,7 +77,7 @@ export const getUserInfo = (id:String) => async (dispatch:any) => {
 export const getMatchList = (puuid:String) => async (dispatch:any) => {
     try {
       dispatch(pending);
-      let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=RGAPI-f6fa3a26-d60c-4ed3-a442-0668ede41606'
+      let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
       const posts = await axios.get(api);
       
       dispatch(successGetMatchList(posts));
@@ -79,7 +89,7 @@ export const getMatchList = (puuid:String) => async (dispatch:any) => {
 export const getMatchInfo = (matchId:String) => async (dispatch:any) => {
   try {
     dispatch(pending);
-    const posts = await axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=RGAPI-f6fa3a26-d60c-4ed3-a442-0668ede41606');
+    const posts = await axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
     dispatch(successGetMatchInfo(posts)); // 성공
   } catch(e) {
     console.log(e);
@@ -90,9 +100,8 @@ export const getMatchInfo = (matchId:String) => async (dispatch:any) => {
  const getMatchInfoSynk = (matchId:string) => {
 
   return new Promise((resolve,reject)=>{
-    axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=RGAPI-f6fa3a26-d60c-4ed3-a442-0668ede41606').then((res)=>{
-      console.log(res);
-      console.log(matchId)
+    axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY).then((res)=>{
+      
       resolve(res);
       return;
     })
@@ -101,14 +110,14 @@ export const getMatchInfo = (matchId:String) => async (dispatch:any) => {
 export const getMatchInfoByIdArr = (matchIdArr:any[]) => async (dispatch:any) => {
   try {
     // dispatch(pending);
-    console.log(matchIdArr)
+    
     var i=0;
     
     dispatch(pending);
     const pr = (_i:number) => {
       let matchId = matchIdArr[_i]
       getMatchInfoSynk(matchId).then((res)=>{
-        console.log(res);
+        
         dispatch(successGetMatchInfo(res)); // 성공
         if(matchIdArr.length-1 > i) {
           i = i + 1;
@@ -145,7 +154,7 @@ type SearchState = {
   puuid:String
   name:String
   matchList:any[]
-  matchInfo:any[]
+  match:Match[]
   pending : Boolean
   error : Boolean,
   matchCount:Number
@@ -161,7 +170,7 @@ const initialState: SearchState = {
   puuid:'',
   name:'',
   matchList:[],
-  matchInfo:[],
+  match:[MatchInitialize],
   matchCount:0
 };
 
@@ -183,10 +192,9 @@ function search(
     case SUCCESS_GET_MATCH_INFO:
       
       // console.log(action.payload.data.metadata.matchId)  
-      const matchCount = state.matchInfo.push(action.payload.data);
+      const matchCount = state.match.push(action.payload.data);
       // console.log(matchCount);
-
-      return {...state,  matchInfo:state.matchInfo, matchCount:matchCount, pending:false};
+      return {...state,  match:state.match, matchCount:matchCount, pending:false};
       case FAIL_GET_MATCH_INFO:
         
         // console.log(action.payload.data.metadata.matchId)   

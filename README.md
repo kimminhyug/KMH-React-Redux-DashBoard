@@ -16,8 +16,13 @@ Components
  - list(작업중)
     -- listItem(작업중) 리그오브레전드 전적검색 api와 연동하여 활용할 예정
  - Button(작업중_redux_thunk) 
+ - 
 ### 작업중
-    - redux thunk를 적용을 해 보았는데 아직 이론적으로는 이해가 잘 가지 않는다. 구현은 그대로 두고 공식 문서를 찾아 왜 사용하는지를 찾아야한다.
+10개의 전적검색을 불러와서 테스트중이다.
+그런데 useEffect의 deps를 잘못 설정하였는지 불필요한 렌더링이 발생하는것으로 보여... 리펙토링이 필요하다.
+또한 현재 일부 UI를 하드코딩으로 진행하였기에 컴포넌트 단위로 다시 쪼개는 작업도 필요하다.
+    
+    
 ### 햇갈리던것
 오직 store에만 state를 저장할 수 있는지, redux가 아닌 기존 방식의 state는 사용하면 안되는지였다.
 일단 정답은 둘다 동시 사용가능이다.
@@ -26,6 +31,10 @@ Components
 만약 검색하는 소환사명이 store에서 일괄로 관리했다면? 나는 접근하기 아주 편리했을것이고 매핑작업도 하지 않았을 것이다. 위에 문제를 해결하기 위해 나온것이 redux 이다.
 그렇기에 무조건 store state를 사용하는것이 아닌 공유해야할 state만 따로 store에 저장하고 그렇지 않은것은 기존 state로 처리해야한다고 생각한다.
 
+ 명심하자 redux는 순수 함수여야 한다
+ action must be plain objects. : redux 액션은 무조건 객체를 반환해야한다. async await는 함수다. 그렇기에 redux thunk를 사용해야 함수를 사용할 수 있게된다.
+ redux thunk 적용 : 요청 -> redux thunk -> 함수체크 true -> 함수실행 -> dispatch ... 함수체크 false ->  객체 -> reducer
+ redux thunk 미적용 : 요청 -> redux thunk -> 함수체크 true -> 에러 ... 함수체크 false ->  객체 -> reducer
 ### Memo
 useEffect는 컴포넌트가 렌더링 된 이후에 실행됨
 2번쨰 파라미터는 배열형태이며 2번쨰파라미터의 값이 변경될떄마다 함수가 실행됨(grid를 필터링할떄 selectValue를 파라미터로 집어넣어 사용해봄. 기억이 안날시 해당 소스 참조)

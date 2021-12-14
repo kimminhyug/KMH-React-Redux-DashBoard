@@ -68,8 +68,8 @@ const App: React.FC = () => {
           console.log((e.target as HTMLInputElement).value);
         
         }}></SelectBoxContainer >
-        <button onClick={onSubmit}>riot puuid 조회(테스트)</button>
-        <SearchButtonContainer onSubmit={onSubmit} text={"riot puuid 조회(테스트)2"}></SearchButtonContainer>
+        {/* <button onClick={onSubmit}>riot puuid 조회(테스트)</button> */}
+        <SearchButtonContainer onSubmit={onSubmit} text={"riot puuid 조회('눈덩이맞히면 돌격'으로 고정_테스트)"}></SearchButtonContainer>
         <div className="profileContainer">
           <ProfileContainer url="../image/profile.jpg "></ProfileContainer>
           <div>
@@ -118,6 +118,11 @@ const App: React.FC = () => {
           </CardContainer>
         </div> */}
 
+        <div className="container-4 cardContainer">
+          <CardContainer>
+            <ListContainer></ListContainer>
+          </CardContainer>
+        </div>
 
         <div className="container-4">
           <CardContainer>
@@ -126,12 +131,7 @@ const App: React.FC = () => {
             />
           </CardContainer>
         </div>
-        <div className="container cardContainer">
-          <CardContainer>
-            <ListContainer></ListContainer>
-          </CardContainer>
-            
-        </div>
+     
       </div>
     </div>
   </div>

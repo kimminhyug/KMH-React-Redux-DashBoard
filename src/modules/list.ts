@@ -52,7 +52,7 @@ function list(
   
   switch (action.type) {
     case ADD:
-      console.log(action);
+      
       return [{...action.payload}, ...state]
     default:
       return state;

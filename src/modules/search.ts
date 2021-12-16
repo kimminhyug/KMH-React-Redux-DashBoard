@@ -17,6 +17,7 @@ const SUBMIT = 'search/SUBMIT' as const;
 const SUCCESS = 'search/SUCCESS' as const;
 const SUCCESS_GET_MATCH_LIST = 'search/SUCCESS_GET_MATCH_LIST' as const;
 const SUCCESS_GET_MATCH_INFO = 'search/SUCCESS_GET_MATCH_INFO' as const;
+const GET_USER_MATCH = 'search/GET_USER_MATCH' as const;
 
 const FAIL_GET_MATCH_INFO = 'search/SUCCESS_GET_MATCH_INFO' as const;
 
@@ -52,6 +53,11 @@ export const failGetMatchInfo = (props:any) => ({
   payload : props,
 });
 
+export const getUserMatch = () => ({
+  type: GET_USER_MATCH
+});
+
+
 
 // export const getMatchesData = (id:String) => async (dispatch:any) => {
   
@@ -63,67 +69,118 @@ export const failGetMatchInfo = (props:any) => ({
 //     // dispatch(success(posts)); // 성공
 // };
 
-export const getUserInfo = (id:String) => async (dispatch:any) => {
-  try {
+export const getUserInfo = (id:String|Promise<any>) => async (dispatch:any) => {
+  
     dispatch(pending);
-    const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY);
+    const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+      dispatch(failGetMatchInfo(e));
+      return e;
+    });
     dispatch(success(posts)); // 성공
-  } catch(e) {
-    dispatch(failGetMatchInfo(e));
-  }
+    return posts;
+
    
 };
 
-export const getMatchList = (puuid:String) => async (dispatch:any) => {
-    try {
-      dispatch(pending);
-      let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
-      const posts = await axios.get(api);
-      
-      dispatch(successGetMatchList(posts));
-    } catch(e) {
-      dispatch(failGetMatchInfo(e));
-    }
+export const getUserInfoAsync = async(id:String|Promise<any>) =>  {
   
-  }
-export const getMatchInfo = (matchId:String) => async (dispatch:any) => {
-  try {
-    dispatch(pending);
-    const posts = await axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
-    dispatch(successGetMatchInfo(posts)); // 성공
-  } catch(e) {
-    console.log(e);
-    dispatch(failGetMatchInfo(e));
-  }
+  
+  const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+  
+    return e;
+  });
+  
+  return posts;
+
+ 
 };
 
- const getMatchInfoSynk = (matchId:string) => {
-
-  return new Promise((resolve,reject)=>{
-    axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY).then((res)=>{
-      
-      resolve(res);
-      return;
-    })
-  })
+export const getMatchList = (puuid:any) => async (dispatch:any) => {
+    
+      dispatch(pending);
+      let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
+      const posts = await axios.get(api).catch((e)=>{
+        dispatch(failGetMatchInfo(e));
+      });
+      dispatch(successGetMatchList(posts));
+      return posts;
+    
+  
 }
-export const getMatchInfoByIdArr = (matchIdArr:any[]) => async (dispatch:any) => {
+
+
+export const getMatchListAsync = async(puuid:any) =>  {
+    
+  
+  let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
+  return await axios.get(api);
+  
+
+
+}
+
+export const getMatchInfo = (matchId:any) => async (dispatch:any) => {
+  
+
+  dispatch(pending);
+  const posts = await axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY).catch((e)=>{
+    console.log(e);
+    dispatch(failGetMatchInfo(e));
+    return e;
+  });
+  dispatch(successGetMatchInfo(posts)); // 성공
+  return posts;
+
+};
+
+ const getMatchInfoASynk = (matchId:any) => {
+
+  // return new Promise((resolve,reject)=>{
+    
+    let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY;
+    return axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
+  // })
+}
+
+  export const selectUser = ( id : any ) =>  async(dispatch:any) => {
+    
+    let userInfo = await getUserInfoAsync(id);
+    
+    dispatch(success(userInfo)); // 성공
+  let matchList = await getMatchListAsync(userInfo.data.puuid);
+  dispatch(successGetMatchList(matchList));
+  
+  // let match = await getMatchInfoASynk(matchList?.data[i]);
+  
+  for (let index = 0; index < matchList.data.length; index++) {
+    let match = await getMatchInfoASynk(matchList?.data[index]);
+  
+    dispatch(successGetMatchInfo(match)); // 성공
+  }
+    // dispatch(getUserMatch());
+  // let match = await getMatchInfo(matchList[]);
+  
+
+
+  
+  }
+export const getMatchInfoByIdArr = (matchIdArr:any[]) =>  (dispatch:any) => {
   try {
     // dispatch(pending);
     
     var i=0;
     
     dispatch(pending);
-    const pr = (_i:number) => {
+    const pr = async(_i:number) => {
       let matchId = matchIdArr[_i]
-      getMatchInfoSynk(matchId).then((res)=>{
-        
+      
+      let res = await getMatchInfoASynk(matchId);
         dispatch(successGetMatchInfo(res)); // 성공
         if(matchIdArr.length-1 > i) {
           i = i + 1;
           pr(i)
         }
-      });
+      
     }
 
     pr(i);
@@ -191,8 +248,11 @@ function search(
       return {...state, matchList:action.payload.data.reverse(), pending:false};
     case SUCCESS_GET_MATCH_INFO:
       
-      // console.log(action.payload.data.metadata.matchId)  
-      const matchCount = state.match.push(action.payload.data);
+      let matchCount = 0;
+      if(action.payload) {
+        matchCount = state.match.push(action.payload?.data);
+      }
+      
       // console.log(matchCount);
       return {...state,  match:state.match, matchCount:matchCount, pending:false};
       case FAIL_GET_MATCH_INFO:

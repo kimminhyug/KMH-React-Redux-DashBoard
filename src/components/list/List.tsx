@@ -33,7 +33,7 @@ function List(props:any) {
    */
   useEffect(()=>{
     if(!rs.puuid) return;
-    dispatch(getMatchList(rs.puuid));
+    // dispatch(getMatchList(rs.puuid));
   },[rs.puuid]);
 
   /**
@@ -48,7 +48,7 @@ function List(props:any) {
       
     // }
     
-    dispatch(getMatchInfoByIdArr(rs.matchList));
+    // dispatch(getMatchInfoByIdArr(rs.matchList));
   },[rs.matchList]);
 
   /**
@@ -61,9 +61,10 @@ function List(props:any) {
     
     
     let info = getSelectorUserInfo(data, rs.puuid);
-    
+    // console.log(data)
+    if(!info) return;
     let championPicture = 'http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/'+info.championName+'.png';
-    console.log(data);
+    console.log(rs?.match);
     dispatchInsert({championId:info.championName , user:rs.puuid, championPicture:championPicture, match:data, userInfo:info});  
     // console.log(data);
   },[rs.matchCount]);

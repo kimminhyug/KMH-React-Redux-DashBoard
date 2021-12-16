@@ -2,7 +2,7 @@ import React, { createElement } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../modules';
 
-import { getUserInfo,success } from '../modules/search';
+import { selectUser,success } from '../modules/search';
 
 import SearchButton from '../components/SearchButton';
 import axios, { AxiosResponse } from 'axios';
@@ -13,7 +13,7 @@ function SearchButtonContainer (props:any) {
     const dispatch = useDispatch(); 
   
     const dispatchOnSubmit = (e:any) => {
-      dispatch(getUserInfo('눈덩이맞히면돌격'));
+      dispatch(selectUser('눈덩이맞히면돌격'));
     };
     
     

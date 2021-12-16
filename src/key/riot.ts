@@ -1,2 +1,2 @@
 // temporary key (Daily reset)
-export const RIOT_KEY = 'RGAPI-85829c05-08f6-4a23-8867-746127aba2d8';
+export const RIOT_KEY = 'RGAPI-51f56c66-be1b-4f7e-8021-e528e769924c';

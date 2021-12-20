@@ -4,17 +4,43 @@
         // margin-top: 5%;
     }
     .Champion-kda {
+        float:left;
         width: 20%;
-        height: 100%;
-        margin-top: 5%;
+        height: 45%;
+        margin-top: 3%;
+        margin-left:2%;
+    }
+    .Champion-css {
+        float:left;
+        width: 20%;
+        height: 45%;
+        margin-top: 3%;
+        margin-left:2%;
+    }
+    .Team {
+        float:left;
+        width: 15%;
+        height: 45%;
+        margin-top: 2%;
+        margin-left:2%;
+        font-size:14px;
     }
     .Champion-Content {
+        float:left;
         width:60%;
         height: 100%;
     }
     img {
-        width:5vw;
+        float:left;
+        width:6vw;
         height: 100%;
+    }
+    .Thumb-Mini {
+        float:left;
+        width:10%;
+    }
+    .Team-List {
+        margin-top:0.5%
     }
 
 }

@@ -1,10 +1,6 @@
 import { MatchInfo, MatchInfoInitialize } from "./MatchInfo"
 import { MatchMetadata, MatchMetadataInitialize } from "./MatchMetadata"
 
-
-
-
-
 export type Match = {
     info : MatchInfo
     metadata : MatchMetadata

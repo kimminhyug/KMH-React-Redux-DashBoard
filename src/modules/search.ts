@@ -17,10 +17,13 @@ const SUBMIT = 'search/SUBMIT' as const;
 const SUCCESS = 'search/SUCCESS' as const;
 const SUCCESS_GET_MATCH_LIST = 'search/SUCCESS_GET_MATCH_LIST' as const;
 const SUCCESS_GET_MATCH_INFO = 'search/SUCCESS_GET_MATCH_INFO' as const;
-const GET_USER_MATCH = 'search/GET_USER_MATCH' as const;
 
+const GET_USER_MATCH = 'search/GET_USER_MATCH' as const;
+const INCREASE_MATCH_COUNT = 'search/INCREASE_MATCH_COUNT' as const;
 const FAIL_GET_MATCH_INFO = 'search/SUCCESS_GET_MATCH_INFO' as const;
 
+
+const INIT = 'search/INIT' as const;
 const FAIL = 'search/FAIL' as const;
 
 // 액션
@@ -57,71 +60,60 @@ export const getUserMatch = () => ({
   type: GET_USER_MATCH
 });
 
+export const increaseMatchCount = () => ({
+  type: INCREASE_MATCH_COUNT
+});
+
+export const init = () => ({
+  type: INIT
+});
 
 
-// export const getMatchesData = (id:String) => async (dispatch:any) => {
-  
-//     dispatch(getUserInfo(id));
-//     dispatch(getMatchList());
-//     dispatch(getMatchInfo());
-    
-  
-//     // dispatch(success(posts)); // 성공
-// };
 
 export const getUserInfo = (id:String|Promise<any>) => async (dispatch:any) => {
-  
-    dispatch(pending);
-    const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
-      dispatch(failGetMatchInfo(e));
-      return e;
-    });
-    dispatch(success(posts)); // 성공
-    return posts;
-
-   
-};
-
-export const getUserInfoAsync = async(id:String|Promise<any>) =>  {
-  
-  
+  dispatch(pending);
   const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
-  
+    dispatch(failGetMatchInfo(e));
     return e;
   });
-  
-  return posts;
-
- 
+  dispatch(success(posts)); // 성공
+  return posts; 
 };
 
+/**
+ * 유저의 닉네임을 이용하여 유저정보를 불러오는 RIOT API 호출
+ * @param 유저닉네임 : string
+ * @returns response{..., data:type/MatchInfo.ts}
+ */
+export const getUserInfoAsync = async(id:string) =>  {
+  const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+    return e;
+  });
+  return posts;
+};
+
+/**
+ * 유저의 닉네임을 이용하여 유저정보를 불러오는 RIOT API 호출
+ * @param 유저닉네임 : string
+ * @returns response{..., data:type/MatchInfo.ts}
+ */
 export const getMatchList = (puuid:any) => async (dispatch:any) => {
-    
-      dispatch(pending);
-      let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
-      const posts = await axios.get(api).catch((e)=>{
-        dispatch(failGetMatchInfo(e));
-      });
-      dispatch(successGetMatchList(posts));
-      return posts;
-    
-  
+  dispatch(pending);
+  let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
+  const posts = await axios.get(api).catch((e)=>{
+    dispatch(failGetMatchInfo(e));
+  });
+  dispatch(successGetMatchList(posts));
+  return posts;
 }
 
 
 export const getMatchListAsync = async(puuid:any) =>  {
-    
-  
   let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
-  return await axios.get(api);
-  
-
-
+  return await axios.get(api);  
 }
 
 export const getMatchInfo = (matchId:any) => async (dispatch:any) => {
-  
-
   dispatch(pending);
   const posts = await axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY).catch((e)=>{
     console.log(e);
@@ -130,70 +122,25 @@ export const getMatchInfo = (matchId:any) => async (dispatch:any) => {
   });
   dispatch(successGetMatchInfo(posts)); // 성공
   return posts;
-
 };
 
- const getMatchInfoASynk = (matchId:any) => {
+const getMatchInfoASynk = (matchId:any) => {
+  return axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
+} 
 
-  // return new Promise((resolve,reject)=>{
-    
-    let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY;
-    return axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
-  // })
-}
+export const selectUser = ( id : any ) =>  async(dispatch:any) => {
+  
+  let userInfo = await getUserInfoAsync(id);
+  dispatch(success(userInfo)); // 성공
 
-  export const selectUser = ( id : any ) =>  async(dispatch:any) => {
-    
-    let userInfo = await getUserInfoAsync(id);
-    
-    dispatch(success(userInfo)); // 성공
   let matchList = await getMatchListAsync(userInfo.data.puuid);
   dispatch(successGetMatchList(matchList));
   
-  // let match = await getMatchInfoASynk(matchList?.data[i]);
-  
   for (let index = 0; index < matchList.data.length; index++) {
     let match = await getMatchInfoASynk(matchList?.data[index]);
-  
     dispatch(successGetMatchInfo(match)); // 성공
   }
-    // dispatch(getUserMatch());
-  // let match = await getMatchInfo(matchList[]);
-  
-
-
-  
-  }
-export const getMatchInfoByIdArr = (matchIdArr:any[]) =>  (dispatch:any) => {
-  try {
-    // dispatch(pending);
-    
-    var i=0;
-    
-    dispatch(pending);
-    const pr = async(_i:number) => {
-      let matchId = matchIdArr[_i]
-      
-      let res = await getMatchInfoASynk(matchId);
-        dispatch(successGetMatchInfo(res)); // 성공
-        if(matchIdArr.length-1 > i) {
-          i = i + 1;
-          pr(i)
-        }
-      
-    }
-
-    pr(i);
-    
-    
-  } catch(e) {
-    console.log(e);
-    dispatch(failGetMatchInfo(e));
-  }
-};
-
-
-// payload: diff
+}
 
 type SearchAction =
   | ReturnType<typeof submit>
@@ -201,7 +148,9 @@ type SearchAction =
   | ReturnType<typeof successGetMatchList>
   | ReturnType<typeof successGetMatchInfo>
   | ReturnType<typeof failGetMatchInfo>
-  | ReturnType<typeof pending>;
+  | ReturnType<typeof pending>
+  | ReturnType<typeof increaseMatchCount>
+  | ReturnType<typeof init>;
   
 
 type SearchState = {
@@ -239,26 +188,30 @@ function search(
   switch (action.type) {
     case PENDING:   
       return {...state,pending:true};
+
     case SUBMIT:   
       return {...state};
+
     case SUCCESS:   
       return {...state, puuid:action.payload.data.puuid, name:action.payload.data.name};
+
     case SUCCESS_GET_MATCH_LIST:   
-    
       return {...state, matchList:action.payload.data.reverse(), pending:false};
+
     case SUCCESS_GET_MATCH_INFO:
-      
       let matchCount = 0;
-      if(action.payload) {
+      if(action.payload) {  
         matchCount = state.match.push(action.payload?.data);
       }
-      
-      // console.log(matchCount);
       return {...state,  match:state.match, matchCount:matchCount, pending:false};
-      case FAIL_GET_MATCH_INFO:
-        
-        // console.log(action.payload.data.metadata.matchId)   
-        return {...state, pending:false, error:true};
+
+    case FAIL_GET_MATCH_INFO:
+      return {...state, pending:false, error:true};
+
+    case INCREASE_MATCH_COUNT:
+      return {...state, matchCount : +state.matchCount + 10}
+    case  INIT:
+      return initialState
     default:
       return state;
   }

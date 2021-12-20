@@ -6,25 +6,29 @@ React, TypeScript 공부중입니다.
 
 Components
  - Profile
- - Chart(Bar, Line)
+ - Chart(Bar, Line) 전적검색과 데이터 연동필요
  - Card
  - Timer
     -- 제일 중요한 퇴근시간
  - Grid
  - SearchBar
     -- Search에 입력한 값을 토대로 Grid를 필터링함.
- - list(작업중)
-    -- listItem(작업중) 리그오브레전드 전적검색 api와 연동하여 활용할 예정
- - Button(작업중_redux_thunk) 
- - 
+ - list 반응형 작업 필요
+    -- listItem
+ - Button 디자인 수정필요
+ 
 ### 작업중
-10개의 전적검색을 불러와서 테스트중이다.
-그런데 useEffect의 deps를 잘못 설정하였는지 불필요한 렌더링이 발생하는것으로 보여... 리펙토링이 필요하다.
-    -> matchInfo를 배열형태로 redux store에서 저장하고 useEffect로 설정하였다. 그런데 item이 push될떄마다 해당 배열 전체를 렌더링하는것으로 보인다.
-Riot Api Match 관련 응답 데이터를 대부분 Type으로 정의하여 연결 시켰다.
-User Info Api는 아직 작업 x
-    
-    
+api에서 응답한 championName을 기준으로 champion.png를 가져오는데 피들스틱만 매핑이 안됨.
+    - championName: 'FiddleSticks'인데 png는 Fiddlesticks로 되어있음.. 아무래도 국가(ko_KR)/champion.json을 읽어 championId를 기준으로 매핑을 해야할꺼 같음
+전적검색 반응형으로 구현 필요
+전적검색 차트연동 필요
+전적검색 예외처리 구현필요
+전적검색 riot api Production Key 등록후 git Ignore 추가필요
+전적검색 폰트 너무 못생김 수정 해야함
+전적검색 상세정보 구현필요
+
+버튼 기본으로 했더니 못생김 수정 필요
+
 ### 햇갈리던것
 오직 store에만 state를 저장할 수 있는지, redux가 아닌 기존 방식의 state는 사용하면 안되는지였다.
 일단 정답은 둘다 동시 사용가능이다.
@@ -37,6 +41,7 @@ User Info Api는 아직 작업 x
  action must be plain objects. : redux 액션은 무조건 객체를 반환해야한다. async await는 함수다. 그렇기에 redux thunk를 사용해야 함수를 사용할 수 있게된다.
  redux thunk 적용 : 요청 -> redux thunk -> 함수체크 true -> 함수실행 -> dispatch ... 함수체크 false ->  객체 -> reducer
  redux thunk 미적용 : 요청 -> redux thunk -> 함수체크 true -> 에러 ... 함수체크 false ->  객체 -> reducer
+
 ### Memo
 useEffect는 컴포넌트가 렌더링 된 이후에 실행됨
 2번쨰 파라미터는 배열형태이며 2번쨰파라미터의 값이 변경될떄마다 함수가 실행됨(grid를 필터링할떄 selectValue를 파라미터로 집어넣어 사용해봄. 기억이 안날시 해당 소스 참조)

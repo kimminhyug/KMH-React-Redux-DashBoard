@@ -1,22 +1,18 @@
 import { MatchInfo } from "../types/riot/MatchInfo";
+import { init } from "./search";
 
 const ADD = 'list/INSERT' as const;
 const SELECT = 'list/SELECT' as const;
+const INIT = 'list/INIT' as const;
 
 type addProps =  {
-    championId : String,
-    user : String,
-    championPicture:string,
     match:MatchInfo,
     userInfo:any
 }
 // 액션
-export const add = ( {championId, user, championPicture, match, userInfo }:addProps ) => ({
+export const add = ( {match, userInfo }:addProps ) => ({
   type: ADD,
   payload : {
-    championId : championId,
-    user : user,
-    championPicture:championPicture,
     match:match,
     userInfo:userInfo
   }
@@ -27,9 +23,14 @@ export const select = (props:any) => ({
   payload : props,
 });
 
+export const initList = () => ({
+  type: INIT,
+});
+
 type ListAction =
   | ReturnType<typeof add>
-  | ReturnType<typeof select>;
+  | ReturnType<typeof select>
+  | ReturnType<typeof initList>;
 
 type ListState = any[];
 
@@ -52,8 +53,9 @@ function list(
   
   switch (action.type) {
     case ADD:
-      
       return [{...action.payload}, ...state]
+    case INIT:
+      return initialState
     default:
       return state;
   }

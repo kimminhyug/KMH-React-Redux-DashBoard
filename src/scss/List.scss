@@ -1,7 +1,14 @@
 .List{}
-.ListItem{
+.List-Item{
     width:90%;
     height:15vh;
     border:1px solid black;
     background-color: gray;
+}
+.Lose {
+    background-color: #e2b6b3;
+}
+
+.Win {
+    background-color: #a3cfec;
 }

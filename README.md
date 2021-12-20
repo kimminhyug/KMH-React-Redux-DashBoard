@@ -2,7 +2,8 @@
 
 React, TypeScript 공부중입니다.
 
-![capture_dashBoard](https://user-images.githubusercontent.com/42853144/145990551-10dc0cb9-98f2-495b-b701-39fcfc479e03.png)
+![capture_dashBoard](https://user-images.githubusercontent.com/42853144/146757125-2f6d1364-eac8-4a01-981c-fd997e6a7ada.png)
+
 
 Components
  - Profile

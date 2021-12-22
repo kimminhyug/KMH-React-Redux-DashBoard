@@ -72,7 +72,9 @@ export const init = () => ({
 
 export const getUserInfo = (id:String|Promise<any>) => async (dispatch:any) => {
   dispatch(pending);
-  const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+  // const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+  const posts = await axios.get('/riot/api/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+    console.log(e);
     dispatch(failGetMatchInfo(e));
     return e;
   });
@@ -80,14 +82,23 @@ export const getUserInfo = (id:String|Promise<any>) => async (dispatch:any) => {
   return posts; 
 };
 
+
 /**
  * 유저의 닉네임을 이용하여 유저정보를 불러오는 RIOT API 호출
  * @param 유저닉네임 : string
  * @returns response{..., data:type/MatchInfo.ts}
  */
 export const getUserInfoAsync = async(id:string) =>  {
-  const posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
-    return e;
+  let posts:any;
+  // posts = await axios.get('https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+    posts = await axios.get('/riot/api/summoner/v4/summoners/by-name/'+id+'?api_key=' + RIOT_KEY).catch((e)=>{
+    console.log(e.toJSON());
+    console.log(e.message);
+    console.log(e.status);
+    
+    
+    // dispatch(failGetMatchInfo(e));
+    return posts;
   });
   return posts;
 };
@@ -99,7 +110,8 @@ export const getUserInfoAsync = async(id:string) =>  {
  */
 export const getMatchList = (puuid:any) => async (dispatch:any) => {
   dispatch(pending);
-  let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
+  // let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
+  let api = '/riot/api/asia/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
   const posts = await axios.get(api).catch((e)=>{
     dispatch(failGetMatchInfo(e));
   });
@@ -109,13 +121,15 @@ export const getMatchList = (puuid:any) => async (dispatch:any) => {
 
 
 export const getMatchListAsync = async(puuid:any) =>  {
-  let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
+  // let api = 'https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
+  let api = '/riot/api/asia/match/v5/matches/by-puuid/'+puuid+'/ids?start=0&count=10&api_key=' + RIOT_KEY
   return await axios.get(api);  
 }
 
 export const getMatchInfo = (matchId:any) => async (dispatch:any) => {
   dispatch(pending);
-  const posts = await axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY).catch((e)=>{
+  // const posts = await axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY).catch((e)=>{
+  const posts = await axios.get('/riot/api/asia/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY).catch((e)=>{
     console.log(e);
     dispatch(failGetMatchInfo(e));
     return e;
@@ -125,14 +139,15 @@ export const getMatchInfo = (matchId:any) => async (dispatch:any) => {
 };
 
 const getMatchInfoASynk = (matchId:any) => {
-  return axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
+  // return axios.get('https://asia.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
+  return axios.get('/riot/api/asia/match/v5/matches/'+matchId+'?api_key=' + RIOT_KEY);
 } 
 
 export const selectUser = ( id : any ) =>  async(dispatch:any) => {
   
   let userInfo = await getUserInfoAsync(id);
   dispatch(success(userInfo)); // 성공
-
+  if(!userInfo) {console.log('사용자 정보를 불러올 수 없습니다.');   return;}
   let matchList = await getMatchListAsync(userInfo.data.puuid);
   dispatch(successGetMatchList(matchList));
   
@@ -193,7 +208,7 @@ function search(
       return {...state};
 
     case SUCCESS:   
-      return {...state, puuid:action.payload.data.puuid, name:action.payload.data.name};
+      return {...state, puuid:action.payload.data?.puuid, name:action.payload.data?.name};
 
     case SUCCESS_GET_MATCH_LIST:   
       return {...state, matchList:action.payload.data.reverse(), pending:false};

@@ -1,2 +1,10 @@
 // temporary key (Daily reset)
-export const RIOT_KEY = 'RGAPI-bd8b92ef-3472-4c3d-99cc-497fb163186e';
+export const RIOT_KEY = 'RGAPI-499d9c84-fef5-4e0c-88fa-11dfbcddd86a';
+
+const RIOT_ERR = {
+    403 : "API Forbidden"
+}
+
+export const getMessageByCode = () => {
+  
+}

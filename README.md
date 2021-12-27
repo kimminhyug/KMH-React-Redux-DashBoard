@@ -2,7 +2,12 @@
 
 React, TypeScript 공부중입니다.
 
-![capture_dashBoard](https://user-images.githubusercontent.com/42853144/145990551-10dc0cb9-98f2-495b-b701-39fcfc479e03.png)
+![capture_dashBoard](https://user-images.githubusercontent.com/42853144/146757125-2f6d1364-eac8-4a01-981c-fd997e6a7ada.png)
+
+
+
+* cors proxy 적용(createProxyMiddleware)
+
 
 Components
  - Profile
@@ -19,14 +24,20 @@ Components
  
 ### 작업중
 api에서 응답한 championName을 기준으로 champion.png를 가져오는데 피들스틱만 매핑이 안됨.
-    - championName: 'FiddleSticks'인데 png는 Fiddlesticks로 되어있음.. 아무래도 국가(ko_KR)/champion.json을 읽어 championId를 기준으로 매핑을 해야할꺼 같음
-전적검색 반응형으로 구현 필요
-전적검색 차트연동 필요
-전적검색 예외처리 구현필요
-전적검색 riot api Production Key 등록후 git Ignore 추가필요
-전적검색 폰트 너무 못생김 수정 해야함
 
-버튼 기본으로 했더니 못생김 수정 필요
+- championName: 'FiddleSticks'인데 png는 Fiddlesticks로 되어있음.. 아무래도 국가(ko_KR)/champion.json을 읽어 championId를 기준으로 매핑을 해야할꺼 같음
+
+- 전적검색 반응형으로 구현 필요
+
+- 전적검색 차트연동 필요
+
+- 전적검색 예외처리 구현필요
+
+- 전적검색 riot api Production Key 등록후 git Ignore 추가필요
+
+- 전적검색 폰트 너무 못생김 수정 해야함
+
+- 버튼 기본으로 했더니 못생김 수정 필요
 
 ### 햇갈리던것
 오직 store에만 state를 저장할 수 있는지, redux가 아닌 기존 방식의 state는 사용하면 안되는지였다.

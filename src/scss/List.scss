@@ -1,14 +1,85 @@
-.List{}
-.List-Item{
-    width:90%;
-    height:15vh;
-    border:1px solid black;
-    background-color: gray;
+
+
+@media (min-width: 576px) {
+    .List{}
+    .List-Item{
+        width:100%;
+        height:10vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    
+    .Win {
+        background-color: #a3cfec;
+    }
 }
-.Lose {
-    background-color: #e2b6b3;
+  
+@media (min-width: 768px) {
+    .List{}
+    .List-Item{
+        width:90%;
+        height:10vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    
+    .Win {
+        background-color: #a3cfec;
+    }
 }
 
-.Win {
-    background-color: #a3cfec;
+@media (min-width: 992px) {
+    .List{}
+    .List-Item{
+        width:90%;
+        height:13vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    
+    .Win {
+        background-color: #a3cfec;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1400px) {
+
+}
+
+@media (min-width: 1900px) {
+
+}
+
+@media (min-width: 2560px) {
+    
+}
+    
+@media (min-width: 3000px) {
+    .List{}
+    .List-Item{
+        width:90%;
+        height:20vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    
+    .Win {
+        background-color: #a3cfec;
+    }
 }

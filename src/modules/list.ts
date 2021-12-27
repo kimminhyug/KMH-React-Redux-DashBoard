@@ -1,5 +1,5 @@
 import { MatchInfo } from "../types/riot/MatchInfo";
-import { init } from "./search";
+import { init } from "./riot/searchRiot";
 
 const ADD = 'list/INSERT' as const;
 const SELECT = 'list/SELECT' as const;
@@ -36,13 +36,6 @@ type ListState = any[];
 
 
 const initialState: ListState = [
-    // {championId:"dd", user:'ㄴ눈'},
-    // {championId:"dd", user:'ㄴ눈'},
-    // {championId:"dd", user:'ㄴ눈'},
-    // {championId:"dd", user:'ㄴ눈'},
-    // {championId:"dd", user:'ㄴ눈'},
-    // {championId:"dd", user:'ㄴ눈'},
-    // {championId:"dd", user:'ㄴ눈'},
 ];
 
 // 리듀서

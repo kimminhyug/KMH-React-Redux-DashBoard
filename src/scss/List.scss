@@ -52,19 +52,71 @@
 }
 
 @media (min-width: 1200px) {
-
+    .List{}
+    .List-Item{
+        width:90%;
+        height:20vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    
+    .Win {
+        background-color: #a3cfec;
+    }
 }
 
 @media (min-width: 1400px) {
-
+    .List{}
+    .List-Item{
+        width:90%;
+        height:20vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    
+    .Win {
+        background-color: #a3cfec;
+    }
 }
 
 @media (min-width: 1900px) {
-
+    .List{}
+    .List-Item{
+        width:90%;
+        height:20vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    
+    .Win {
+        background-color: #a3cfec;
+    }
 }
 
 @media (min-width: 2560px) {
+    .List{}
+    .List-Item{
+        width:90%;
+        height:20vh;
+        border:1px solid black;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
     
+    .Win {
+        background-color: #a3cfec;
+    }
 }
     
 @media (min-width: 3000px) {

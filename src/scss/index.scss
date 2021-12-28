@@ -68,6 +68,32 @@ body {
     align-items: center;
 }
 
+@media (min-width: 376px) {
+    .Header {
+      max-width: 340px; 
+    }
+    .timerContainer {
+        width: 30%;
+        float: left;
+        margin: 1%;
+        font-size: 0.6em
+        
+    }
+}
+
+@media (min-width: 476px) {
+    .Header {
+      max-width: 440px; 
+    }
+    .timerContainer {
+        width: 30%;
+        float: left;
+        margin: 1%;
+        font-size: 0.6em
+        
+    }
+}
+
 @media (min-width: 576px) {
     .Header {
       max-width: 540px; 
@@ -205,6 +231,7 @@ body {
     margin: 1%;
     float: left;
 }
+
 
 
 

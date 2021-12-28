@@ -1,4 +1,54 @@
-@media (min-width: 576px) {
+@media (min-width: 376px) {
+    .Champion-Header {
+        float:left;
+        font-size:0.4em;
+        margin:5px;
+        // margin-top: 5%;
+    }
+    .Champion-kda {
+        float:left;
+        width: 9%;
+        height: 45%;
+        margin-top: 5.2%;
+        margin-left:1%;
+        font-size:0.4em;
+    }
+    .Champion-css {
+        float:left;
+        width: 12%;
+        height: 45%;
+        margin-top: 5%;
+        margin-left:1%;
+        font-size:0.4em;
+    }
+    .Team {
+        float:left;
+        width: 29.5%;
+        height: 45%;
+        margin-top: 1%;
+        margin-left:1%;
+        font-size:0.4em;
+    }
+    .Champion-Content {
+        float:left;
+        width:60%;
+        height: 100%;
+    }
+    img {
+        float:left;
+        width:5.5vw;
+        height: 100%;
+    }
+    .Thumb-Mini {
+        float:left;
+        width:10%;
+    }
+    .Team-List {
+        margin-top:1.5%
+    }
+}
+
+@media (min-width: 476px) {
     .Champion-Header {
         float:left;
         font-size:0.3em;
@@ -47,7 +97,6 @@
         margin-top:1.5%
     }
 }
-  
 @media (min-width: 768px) {
     .Champion-Header {
         float:left;

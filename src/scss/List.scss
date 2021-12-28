@@ -1,25 +1,152 @@
 
 
-@media (min-width: 576px) {
+
+@media (min-width: 376px) {
     .List{}
     .List-Item{
+        position: relative;
         width:100%;
         height:10vh;
         border:1px solid black;
+        z-index: 11;
         background-color: gray;
     }
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+}
+
+@media (min-width: 476px) {
+    .List{}
+    .List-Item{
+        position: relative;
+        width:100%;
+        height:10vh;
+        border:1px solid black;
+        z-index: 11;
+        background-color: gray;
+    }
+    .Lose {
+        background-color: #e2b6b3;
+    }
+    .Win {
+        background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 }
   
 @media (min-width: 768px) {
     .List{}
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
     .List-Item{
+        position: relative;
         width:90%;
         height:10vh;
         border:1px solid black;
@@ -28,15 +155,62 @@
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        display: block;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 }
 
 @media (min-width: 992px) {
     .List{}
     .List-Item{
+        position: relative;
         width:90%;
         height:13vh;
         border:1px solid black;
@@ -45,15 +219,62 @@
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        display: block;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 }
 
 @media (min-width: 1200px) {
     .List{}
     .List-Item{
+        position: relative;
         width:90%;
         height:20vh;
         border:1px solid black;
@@ -62,15 +283,62 @@
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        display: block;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 }
 
 @media (min-width: 1400px) {
     .List{}
     .List-Item{
+        position: relative;
         width:90%;
         height:20vh;
         border:1px solid black;
@@ -79,9 +347,55 @@
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        display: block;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 }
 
@@ -96,9 +410,55 @@
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        display: block;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 }
 
@@ -113,9 +473,55 @@
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
+    }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        display: block;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 }
     
@@ -130,8 +536,69 @@
     .Lose {
         background-color: #e2b6b3;
     }
-    
     .Win {
         background-color: #a3cfec;
     }
+    .list-item-click{
+        position: absolute;
+        display: none;
+        right: 5px;
+        bottom: 5px;
+        font-size: 2em;
+    }
+    .Lose:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #e2b6b3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #e2b6b3;
+        cursor: pointer;
+    }
+    .Lose:hover  .list-item-click {
+        display: block;
+    }
+
+    .Win:hover {
+        padding: 10px;
+        box-shadow: 10px 1px 15px 10px #a3cfec;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #a3cfec;
+        cursor: pointer;
+    }
+
+    .Win:hover .list-item-click {
+        display: block;
+    }
+
+    .list-item-content-disable{
+        display: none;
+    }
+    .list-item-content-enable {
+        font-size: 2em;
+        position: relative;
+        background-color: skyblue;
+        width :90%;
+        height: 30vh;
+        margin-top:3px;
+        margin-bottom: 3px;
+        border: 1px solid black;
+        display: block;
+        animation-name: testAnimation;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
 }
+  
+  @keyframes testAnimation {
+    0%    {background-color:skyblue; left:0px; top: -100px;}
+    100%  {background-color:skyblue; left:0px; top: 0px;}
+  }
+  @keyframes testAnimation2 {
+    0%   {background-color:skyblue; left:0px; top: 0px; }
+    25% {background-color:skyblue; left:0px; top: -50px;}
+    80% {background-color:skyblue; left:0px; top: -100px; max-height: 0px;}
+    
+    // from {max-height: 500;}
+    // to {max-height: 0px;}
+  }

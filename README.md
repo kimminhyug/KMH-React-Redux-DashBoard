@@ -17,9 +17,20 @@ Components
     -- 제일 중요한 퇴근시간
  - Grid
  - SearchBar
+  
     -- Search에 입력한 값을 토대로 Grid를 필터링함.
+<<<<<<< HEAD
  - list 반응형 작업 필요
     -- listItem
+=======
+    
+ - list 반응형 작업 필요 (모바일 쪽 반응형 작업 안됨 576 이하)
+ 
+    -- listItem(추가완료)
+    
+    -- item hover 이벤트 및 애니메이션 적용. 상세 데이터 입력 및 무슨 데이터를 보여줄지 생각해야함
+        
+>>>>>>> 8e4ea76e56f7735c4e5429ac64d2a80c6b52ae32
  - Button 디자인 수정필요
  
 ### 작업중

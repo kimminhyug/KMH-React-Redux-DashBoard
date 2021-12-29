@@ -1,9 +1,11 @@
 import React, { HTMLAttributes, HtmlHTMLAttributes, useEffect, useRef, useState } from 'react';
 import '../../scss/List.scss';
+import '../../scss/ListItemContainer.scss'
 import '../../scss/Champion.scss';
 
 import { Match } from '../../types/riot/Match';
 import { MatchPlayerInfo } from '../../types/riot/MatchPlayerInfo';
+import ListItemContentContainer from './List-item-content-container';
 
 type listProps = {
   match:Match,
@@ -63,7 +65,8 @@ function ListItem(props:listProps) {
   }
   const animationElment = [
     <div className={`${isAnimation?'list-item-content-enable':'list-item-content-disable'}`} ref={listItemContent}>
-      {props.match.info.gameId}
+      {/* {props.match.info.gameId} */}
+      <ListItemContentContainer match={props.match} userInfo={props.userInfo}></ListItemContentContainer>
     </div>
   ]
   const onClickTest = ()=>{

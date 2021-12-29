@@ -8,7 +8,7 @@ import Line from '../components/chart/Line';
 
 import {chart, ChartType} from '../types/ChartType';
 
-
+import '../scss/chart.scss';
 function ChartContainer (props:any) {
   
   let nameArr:string[] = [];

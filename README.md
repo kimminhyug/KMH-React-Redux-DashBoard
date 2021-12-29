@@ -18,9 +18,8 @@ Components
  - Grid
  - SearchBar
     -- Search에 입력한 값을 토대로 Grid를 필터링함.
- - list 반응형 작업 필요 (모바일 쪽 반응형 작업 안됨 576 이하)
-    -- listItem(추가완료)
-        -- item hover 이벤트 및 애니메이션 적용. 상세 데이터 입력 및 무슨 데이터를 보여줄지 생각해야함
+ - list 반응형 작업 필요
+    -- listItem
  - Button 디자인 수정필요
  
 ### 작업중
@@ -49,11 +48,8 @@ api에서 응답한 championName을 기준으로 champion.png를 가져오는데
 그렇기에 무조건 store state를 사용하는것이 아닌 공유해야할 state만 따로 store에 저장하고 그렇지 않은것은 기존 state로 처리해야한다고 생각한다.
 
  명심하자 redux는 순수 함수여야 한다
-
  action must be plain objects. : redux 액션은 무조건 객체를 반환해야한다. async await는 함수다. 그렇기에 redux thunk를 사용해야 함수를 사용할 수 있게된다.
-
  redux thunk 적용 : 요청 -> redux thunk -> 함수체크 true -> 함수실행 -> dispatch ... 함수체크 false ->  객체 -> reducer
-
  redux thunk 미적용 : 요청 -> redux thunk -> 함수체크 true -> 에러 ... 함수체크 false ->  객체 -> reducer
 
 ### Memo
